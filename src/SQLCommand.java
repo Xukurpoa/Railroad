@@ -34,7 +34,7 @@ public class SQLCommand {
         for(int i =0; i < values.length - 1; i++){
             temp = values[i] + ", ";
         }
-        temp = temp + values[values.length - 1] + " ";
+        //temp = temp + values[values.length - 1] + " ";
         String SQLString = "update " + table + " set " + temp + " where " + condition + ";";
         try{
             stmt.execute(SQLString);
