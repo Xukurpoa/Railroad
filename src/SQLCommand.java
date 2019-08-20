@@ -15,11 +15,11 @@ public class SQLCommand {
     }
     public ResultSet select(Statement stmt, String table, String... args){
         ResultSet rset;
-        String SQLString = "Select ";
+        StringBuilder SQLString = new StringBuilder("Select ");
         for(String s:args){
-            SQLString = SQLString + s + " ";
+            SQLString.append(s).append(" ");
         }
-        SQLString = SQLString +" "+ table+ ";";
+        SQLString.append(" ").append(table).append(";");
         try{
             rset = stmt.executeQuery(SQLString +" from RailRoadDB");
             return rset;
@@ -47,7 +47,6 @@ public class SQLCommand {
     /**
      *  Use only for a insert with all values
      *  Use insertPartial if the row doesnt have every data type
-     * @param stmt
      * @param table String representing table name
      * @param values All values need to appear and needs to be in proper SQL format ex. (1,'sup',2)
      */

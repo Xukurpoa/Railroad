@@ -23,7 +23,8 @@ public class RailRoads {
             while(rset.next()){
                 System.out.println(rset.getString("name"));
             }
-            command.insert(stmt,"Stations","('Chicago')");
+            command.update(stmt,"trains"," name = 'thomas'","id = 69,name='daddy'");
+
         }
 
         catch (Exception e){
